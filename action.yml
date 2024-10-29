@@ -1,0 +1,31 @@
+name: 'Workflow Dispatch Action'
+description: 'Trigger a workflow from another workflow'
+author: 'Ivan Rakic'
+
+inputs:
+  owner:
+    description: 'The account owner of the repository. The name is not case sensitive.'
+    required: true
+  repo:
+    description: 'The name of the repository without the .git extension. The name is not case sensitive.'
+    required: true
+  pat:
+    description: 'GitHub Personal Access Token (PAT) that has Actions repository permissions.'
+    required: true
+  workflow_id:
+    description: 'The ID of the workflow to trigger. Can be workflow ID, filename, or name.'
+    required: true
+  ref:
+    description: 'The git reference for the workflow. The reference can be a branch or tag name.'
+    required: false
+    default: 'main'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GH_PAT: ${{ inputs.pat }}
+    REPO_OWNER: ${{ inputs.owner }}
+    REPO_NAME: ${{ inputs.repo }}
+    WORKFLOW_ID: ${{ inputs.workflow_id }}
+    REF: ${{ inputs.ref }}
