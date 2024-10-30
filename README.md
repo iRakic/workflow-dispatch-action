@@ -1,4 +1,4 @@
-# Workflow dispatch action
+# Trigger Workflow Dispatch Action
 
 This is a GitHub Action that will trigger a workflow from another workflow.
 

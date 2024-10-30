@@ -1,7 +1,10 @@
-name: 'Workflow Dispatch Action'
+name: 'Trigger Workflow Dispatch Action'
 description: 'Trigger a workflow from another workflow'
 author: 'Ivan Rakic'
-
+branding:
+  icon: 'fast-forward'
+  color: 'blue'
+  
 inputs:
   owner:
     description: 'The account owner of the repository. The name is not case sensitive.'
